@@ -7,13 +7,11 @@
     "build": "next build --turbopack",
     "start": "next start",
     "lint": "eslint",
-    "npm": "next test",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "test": "jest"
   },
   "dependencies": {
-    "jest": "^30.2.0",
     "next": "15.5.4",
     "react": "19.1.0",
     "react-dom": "19.1.0"
@@ -35,6 +33,7 @@
     "eslint": "^9",
     "eslint-config-next": "15.5.4",
     "eslint-plugin-storybook": "^9.1.8",
+    "jest": "^30.2.0",
     "playwright": "^1.55.1",
     "storybook": "^9.1.8",
     "tailwindcss": "^4",
