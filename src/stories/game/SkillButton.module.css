@@ -1,0 +1,68 @@
+/* CSS Module chỉ cho hiệu ứng đặc biệt */
+
+.skillReady {
+  box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.3);
+  animation: skillReadyGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes skillReadyGlow {
+  0% {
+    box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.6),
+      0 0 8px 2px rgba(34, 197, 94, 0.2);
+  }
+}
+
+.cooldownOverlay {
+  position: relative;
+}
+
+.cooldownOverlay::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0%,
+    rgba(0, 0, 0, 0.4) 100%
+  );
+  animation: cooldownSweep 1s linear;
+  pointer-events: none;
+}
+
+@keyframes cooldownSweep {
+  0% {
+    background: conic-gradient(
+      from 0deg,
+      rgba(0, 0, 0, 0.4) 0%,
+      transparent 0%
+    );
+  }
+  100% {
+    background: conic-gradient(
+      from 0deg,
+      rgba(0, 0, 0, 0.4) 360deg,
+      transparent 360deg
+    );
+  }
+}
+
+.cooldownText {
+  animation: cooldownPulse 1s ease-in-out infinite;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.8);
+}
+
+@keyframes cooldownPulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}

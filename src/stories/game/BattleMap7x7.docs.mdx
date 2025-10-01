@@ -1,0 +1,203 @@
+import { Meta, Canvas, Controls } from "@storybook/addon-docs/blocks";
+import BattleMap7x7 from "./BattleMap7x7";
+import * as BattleMap7x7Stories from "./BattleMap7x7.stories";
+
+<Meta of={BattleMap7x7Stories} />
+
+# BattleMap7x7 Component
+
+7x7 Grid Battle Map component cho AFK farm game với square cells, monster spawning system, và interactive highlight features.
+
+## Interactive Playground
+
+<Canvas of={BattleMap7x7Stories.Default} />
+
+<Controls of={BattleMap7x7Stories.Default} />
+
+## Hero Positioning
+
+### Center Hero
+
+<Canvas of={BattleMap7x7Stories.CenterHero} />
+
+<Controls of={BattleMap7x7Stories.CenterHero} />
+
+## Highlight System
+
+### Attack Range
+
+<Canvas of={BattleMap7x7Stories.WithHighlightRange} />
+
+<Controls of={BattleMap7x7Stories.WithHighlightRange} />
+
+## Monster Management
+
+### Custom Monsters
+
+<Canvas of={BattleMap7x7Stories.CustomMonsters} />
+
+<Controls of={BattleMap7x7Stories.CustomMonsters} />
+
+### All Monster Types
+
+<Canvas of={BattleMap7x7Stories.AllMonsterTypes} />
+
+<Controls of={BattleMap7x7Stories.AllMonsterTypes} />
+
+## Interactive Features
+
+### Interactive Map
+
+<Canvas of={BattleMap7x7Stories.Interactive} />
+
+<Controls of={BattleMap7x7Stories.Interactive} />
+
+## Customization Options
+
+### No Borders
+
+<Canvas of={BattleMap7x7Stories.NoBorders} />
+
+<Controls of={BattleMap7x7Stories.NoBorders} />
+
+### No Numbers
+
+<Canvas of={BattleMap7x7Stories.NoNumbers} />
+
+<Controls of={BattleMap7x7Stories.NoNumbers} />
+
+### Minimal Clean
+
+<Canvas of={BattleMap7x7Stories.MinimalClean} />
+
+<Controls of={BattleMap7x7Stories.MinimalClean} />
+
+## Background Themes
+
+### Grass Theme
+
+<Canvas of={BattleMap7x7Stories.GrassTheme} />
+
+<Controls of={BattleMap7x7Stories.GrassTheme} />
+
+### Desert Theme
+
+<Canvas of={BattleMap7x7Stories.DesertTheme} />
+
+<Controls of={BattleMap7x7Stories.DesertTheme} />
+
+### Lava Theme
+
+<Canvas of={BattleMap7x7Stories.LavaTheme} />
+
+<Controls of={BattleMap7x7Stories.LavaTheme} />
+
+### Void Theme
+
+<Canvas of={BattleMap7x7Stories.VoidTheme} />
+
+<Controls of={BattleMap7x7Stories.VoidTheme} />
+
+## Props
+
+<Controls of={BattleMap7x7Stories.Default} />
+
+## Features
+
+- **7x7 Grid Layout** với perfect square cells
+- **shadcn/ui Card components** cho mỗi cell
+- **Manhattan Distance Algorithm** để spawn monsters cách hero tối thiểu 2 ô
+- **Interactive Highlight System** cho attack ranges và movement
+- **4 Monster Types** với different levels và visual styling
+- **12 Background Themes** cho realistic game environments
+- **Customizable Borders** và cell numbers
+- **Responsive Design** với Tailwind CSS
+
+## Monster Types
+
+1. **Goblin** 👹 - Green theme, levels 5-24
+2. **Orc** 👺 - Gray theme, levels 5-24
+3. **Skeleton** 💀 - Purple theme, levels 5-24
+4. **Dragon** 🐉 - Red theme, levels 5-24
+
+## Background Themes
+
+- **default** - Green to blue gradient
+- **grass** - Green nature theme
+- **snow** - Blue to white winter theme
+- **desert** - Yellow to orange sandy theme
+- **water** - Blue aquatic theme
+- **lava** - Red to orange volcanic theme
+- **forest** - Deep green woodland theme
+- **mountain** - Gray rocky theme
+- **swamp** - Green to yellow murky theme
+- **crystal** - Purple to pink magical theme
+- **void** - Dark mysterious theme
+- **heaven** - Light celestial theme
+
+## Customization Options
+
+1. `showBorder` - Show/hide cell borders
+2. `showCellNumber` - Show/hide coordinates (row,col)
+3. `showCardBorder` - Show/hide shadcn/ui Card borders
+4. `showCardBackground` - Show/hide Card background colors
+5. `backgroundTheme` - Select from 12 realistic themes
+
+## Usage Examples
+
+### Basic Implementation
+
+```tsx
+import BattleMap7x7 from "./BattleMap7x7";
+
+function GameBoard() {
+  return (
+    <BattleMap7x7 heroCell={{ row: 6, col: 3 }} showRandomizeButton={true} />
+  );
+}
+```
+
+### Production Ready
+
+```tsx
+<BattleMap7x7
+  heroCell={{ row: 3, col: 3 }}
+  showBorder={false}
+  showCellNumber={false}
+  showCardBorder={false}
+  backgroundTheme="grass"
+  showRandomizeButton={false}
+/>
+```
+
+### With Custom Monsters
+
+```tsx
+const monsters = [
+  { id: "boss", position: { row: 0, col: 3 }, type: "dragon", level: 99 },
+  { id: "guard", position: { row: 2, col: 1 }, type: "orc", level: 30 },
+];
+
+<BattleMap7x7
+  heroCell={{ row: 6, col: 3 }}
+  monsters={monsters}
+  backgroundTheme="lava"
+/>;
+```
+
+## Best Practices
+
+### ✅ Do's
+
+- Use `showRandomizeButton={false}` trong production
+- Choose appropriate background themes cho game context
+- Hide cell numbers và borders cho clean production look
+- Provide meaningful `onCellClick` handlers
+- Use stable dependencies trong useCallback
+
+### ❌ Don'ts
+
+- Không pass unstable objects vào dependencies
+- Không ignore Manhattan distance validation
+- Không hardcode monster positions trong production
+- Không forget responsive considerations

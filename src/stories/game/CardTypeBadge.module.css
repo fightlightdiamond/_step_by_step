@@ -1,0 +1,187 @@
+/* CSS Module chỉ cho badge effects và animations */
+
+/* Animated badge */
+.animatedBadge {
+  animation: badgeFloat 3s ease-in-out infinite;
+}
+
+@keyframes badgeFloat {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-1px);
+  }
+}
+
+/* Glowing badge */
+.glowingBadge {
+  position: relative;
+  animation: badgeGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes badgeGlow {
+  0% {
+    box-shadow: 0 0 5px currentColor;
+  }
+  100% {
+    box-shadow: 0 0 15px currentColor;
+  }
+}
+
+/* Category icon */
+.categoryIcon {
+  display: inline-block;
+  margin-right: 4px;
+  animation: iconTwinkle 2s ease-in-out infinite;
+}
+
+@keyframes iconTwinkle {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
+}
+
+/* Glow overlay */
+.glowOverlay {
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  opacity: 0.5;
+  animation: overlayPulse 2s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes overlayPulse {
+  0% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}
+
+/* Category-specific effects */
+.category-spell {
+  position: relative;
+}
+
+.category-spell.animatedBadge {
+  animation: spellShimmer 3s ease-in-out infinite;
+}
+
+@keyframes spellShimmer {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.category-creature.animatedBadge .categoryIcon {
+  animation: creatureBounce 2s ease-in-out infinite;
+}
+
+@keyframes creatureBounce {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-2px);
+  }
+}
+
+.category-artifact.animatedBadge .categoryIcon {
+  animation: artifactSpin 4s linear infinite;
+}
+
+@keyframes artifactSpin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.category-enchantment.animatedBadge {
+  animation: enchantmentPulse 2s ease-in-out infinite;
+}
+
+@keyframes enchantmentPulse {
+  0%,
+  100% {
+    transform: scale(1);
+    filter: brightness(1);
+  }
+  50% {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+  }
+}
+
+.category-land.animatedBadge .categoryIcon {
+  animation: landSway 3s ease-in-out infinite;
+}
+
+@keyframes landSway {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-5deg);
+  }
+  75% {
+    transform: rotate(5deg);
+  }
+}
+
+/* Glow colors by category */
+.glow-spell {
+  background: radial-gradient(ellipse, rgba(59, 130, 246, 0.4), transparent);
+}
+
+.glow-creature {
+  background: radial-gradient(ellipse, rgba(34, 197, 94, 0.4), transparent);
+}
+
+.glow-artifact {
+  background: radial-gradient(ellipse, rgba(107, 114, 128, 0.4), transparent);
+}
+
+.glow-enchantment {
+  background: radial-gradient(ellipse, rgba(139, 92, 246, 0.4), transparent);
+}
+
+.glow-land {
+  background: radial-gradient(ellipse, rgba(251, 191, 36, 0.4), transparent);
+}
+
+/* Hover effects */
+.animatedBadge:hover {
+  transform: translateY(-2px) scale(1.05);
+  transition: transform 0.2s ease;
+}
+
+.glowingBadge:hover {
+  animation-duration: 0.5s;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .categoryIcon {
+    margin-right: 2px;
+    font-size: 0.8em;
+  }
+}

@@ -1,0 +1,34 @@
+/* CSS Module chỉ cho hiệu ứng đặc biệt mà Tailwind không có */
+
+.activeGlow {
+  box-shadow: 0 0 8px 2px rgba(251, 191, 36, 0.4),
+    0 0 16px 4px rgba(253, 230, 138, 0.2);
+  animation: glowPulse 2s ease-in-out infinite alternate;
+}
+
+@keyframes glowPulse {
+  0% {
+    box-shadow: 0 0 8px 2px rgba(251, 191, 36, 0.4),
+      0 0 16px 4px rgba(253, 230, 138, 0.2);
+  }
+  100% {
+    box-shadow: 0 0 12px 3px rgba(251, 191, 36, 0.6),
+      0 0 24px 6px rgba(253, 230, 138, 0.3);
+  }
+}
+
+.pulse {
+  animation: dotPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes dotPulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.8;
+  }
+}

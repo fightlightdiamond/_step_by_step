@@ -1,0 +1,216 @@
+import { Meta, Canvas, Controls } from "@storybook/addon-docs/blocks";
+import SkillList from "./SkillList";
+import * as SkillListStories from "./SkillList.stories";
+
+<Meta of={SkillListStories} />
+
+# SkillList Component
+
+SkillList component hiển thị danh sách 50 skills với ảnh từ `/images/skills/1.png` đến `50.png`. Hỗ trợ multiple layouts, sorting, filtering và size controls.
+
+## Interactive Playground
+
+<Canvas of={SkillListStories.Default} />
+
+<Controls of={SkillListStories.Default} />
+
+## Layout Examples
+
+### Grid Layout (Default)
+
+Grid layout với columns có thể điều chỉnh từ 2-8 columns.
+
+<Canvas of={SkillListStories.GridLayout} />
+
+### List Layout
+
+Vertical list layout cho mobile hoặc sidebar.
+
+<Canvas of={SkillListStories.ListLayout} />
+
+### Masonry Layout
+
+Pinterest-style masonry layout với auto-balancing.
+
+<Canvas of={SkillListStories.MasonryLayout} />
+
+## Column Variations
+
+### Four Columns
+
+<Canvas of={SkillListStories.FourColumns} />
+
+### Six Columns
+
+<Canvas of={SkillListStories.SixColumns} />
+
+### Eight Columns
+
+<Canvas of={SkillListStories.EightColumns} />
+
+## Size Variations
+
+### Small Size
+
+Compact view với nhiều skills trên màn hình. Image size: 48px.
+
+<Canvas of={SkillListStories.SmallSize} />
+
+### Large Size
+
+Comfortable view với ảnh và text lớn hơn. Image size: 96px.
+
+<Canvas of={SkillListStories.LargeSize} />
+
+### Extra Large Size
+
+Maximum detail view với ảnh rất lớn. Image size: 128px.
+
+<Canvas of={SkillListStories.XLargeSize} />
+
+## Sorting & Filtering
+
+### Sorted by Rarity
+
+Skills được sắp xếp theo rarity: common → rare → epic → legendary.
+
+<Canvas of={SkillListStories.SortedByRarity} />
+
+### Sorted by Level
+
+Skills được sắp xếp theo level từ cao xuống thấp.
+
+<Canvas of={SkillListStories.SortedByLevel} />
+
+### Unlocked Only
+
+Chỉ hiển thị skills đã unlock.
+
+<Canvas of={SkillListStories.UnlockedOnly} />
+
+### Locked Only
+
+Chỉ hiển thị skills chưa unlock (grayscale + lock icon).
+
+<Canvas of={SkillListStories.LockedOnly} />
+
+### Max Level Only
+
+Chỉ hiển thị skills đã đạt max level (có crown icon).
+
+<Canvas of={SkillListStories.MaxLevelOnly} />
+
+## Interactive Features
+
+### Click Handlers
+
+Skills có thể click được với custom handlers.
+
+<Canvas of={SkillListStories.Interactive} />
+
+## Complete Showcase
+
+### All 50 Skills
+
+Hiển thị tất cả 50 skills với ảnh từ `/images/skills/1.png` đến `50.png`.
+
+<Canvas of={SkillListStories.AllSkills50} />
+
+## Props
+
+<Controls of={SkillListStories.Default} />
+
+## Features
+
+### 🖼️ **50 Real Images**
+
+- **Auto-generated**: `/images/skills/1.png` đến `/images/skills/50.png`
+- **Next.js Image**: Optimized loading với `<Image />` component
+- **50 unique skills**: Tên và mô tả khác nhau cho mỗi skill
+
+### 🎮 **Flexible Layouts**
+
+- **Grid Layout**: 2-8 columns responsive grid
+- **List Layout**: Vertical list cho mobile/sidebar
+- **Masonry Layout**: Pinterest-style với auto-balancing
+
+### 📏 **Size Control**
+
+- **Small**: 48px images, compact cards (w-32)
+- **Medium**: 64px images, balanced cards (w-40)
+- **Large**: 96px images, comfortable cards (w-48)
+- **XLarge**: 128px images, maximum detail (w-56)
+
+### 🔄 **Sorting Options**
+
+- **By Name**: Alphabetical sorting
+- **By Rarity**: common → rare → epic → legendary
+- **By Level**: Highest level first
+
+### 🔍 **Filtering Options**
+
+- **All**: Hiển thị tất cả skills
+- **Unlocked**: Chỉ skills đã unlock
+- **Locked**: Chỉ skills chưa unlock
+- **Max Level**: Chỉ skills đã đạt max level
+
+### ✨ **Visual Effects**
+
+- **Rarity Colors**: Border colors theo rarity
+- **Lock State**: Grayscale + lock icon cho locked skills
+- **Max Level**: Crown icon cho max level skills
+- **Hover Effects**: Shadow + transform on hover
+- **Animations**: Staggered entrance animations
+
+### 🎯 **Interactive**
+
+- **Click Handlers**: Custom onClick cho mỗi skill
+- **Responsive**: Auto-adapt theo screen size
+- **Accessibility**: Proper alt text và keyboard navigation
+
+## Technical Implementation
+
+### CSS Architecture
+
+- **Tailwind CSS**: Layout, grid, spacing, colors
+- **CSS Modules**: Complex animations và effects
+- **shadcn/ui**: Card components
+- **Next.js Image**: Optimized image loading
+
+### Performance
+
+- **Lazy Loading**: Images load khi cần
+- **Optimized Rendering**: Efficient re-renders
+- **Memory Management**: Proper cleanup
+
+### Responsive Design
+
+- **Mobile First**: Responsive từ mobile lên desktop
+- **Flexible Grid**: Auto-adjust columns theo screen size
+- **Touch Friendly**: Proper touch targets
+
+## Use Cases
+
+### 🎮 **Game UI**
+
+- Skill trees và character progression
+- Inventory management
+- Achievement galleries
+
+### 📱 **Mobile Apps**
+
+- App galleries và showcases
+- Product catalogs
+- Media libraries
+
+### 🖥️ **Desktop Applications**
+
+- File browsers với thumbnails
+- Image galleries
+- Tool palettes
+
+### 🌐 **Web Applications**
+
+- Portfolio showcases
+- Product listings
+- Content management systems

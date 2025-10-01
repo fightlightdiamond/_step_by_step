@@ -1,0 +1,190 @@
+/* CSS Module chỉ cho animations và effects đặc biệt */
+
+/* Animated stat container */
+.animatedStat {
+  animation: statFloat 3s ease-in-out infinite;
+}
+
+@keyframes statFloat {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-1px);
+  }
+}
+
+/* Animated icon */
+.animatedIcon {
+  animation: iconPulse 2s ease-in-out infinite;
+}
+
+@keyframes iconPulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+/* Animated value với number counting effect */
+.animatedValue {
+  animation: valueGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes valueGlow {
+  0% {
+    text-shadow: none;
+  }
+  100% {
+    text-shadow: 0 0 4px currentColor;
+  }
+}
+
+/* Highlighted state */
+.highlighted {
+  position: relative;
+  animation: highlightPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes highlightPulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* Boost indicator */
+.boostIndicator {
+  display: inline-block;
+  margin-left: 4px;
+  color: #22c55e;
+  font-weight: bold;
+  animation: boostBounce 1s ease-in-out infinite;
+}
+
+@keyframes boostBounce {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-2px);
+  }
+}
+
+/* Background glow effects */
+.glowBackground {
+  position: absolute;
+  inset: -4px;
+  border-radius: 8px;
+  opacity: 0.3;
+  animation: backgroundGlow 2s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes backgroundGlow {
+  0% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 0.4;
+  }
+}
+
+/* Type-specific glow colors */
+.glow-attack {
+  background: radial-gradient(ellipse, rgba(239, 68, 68, 0.3), transparent);
+}
+
+.glow-defense {
+  background: radial-gradient(ellipse, rgba(59, 130, 246, 0.3), transparent);
+}
+
+.glow-health {
+  background: radial-gradient(ellipse, rgba(34, 197, 94, 0.3), transparent);
+}
+
+.glow-mana {
+  background: radial-gradient(ellipse, rgba(139, 92, 246, 0.3), transparent);
+}
+
+.glow-speed {
+  background: radial-gradient(ellipse, rgba(251, 191, 36, 0.3), transparent);
+}
+
+.glow-default {
+  background: radial-gradient(ellipse, rgba(107, 114, 128, 0.3), transparent);
+}
+
+/* Type-specific enhancements */
+.type-attack .animatedIcon {
+  animation: attackPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes attackPulse {
+  0%,
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.2) rotate(5deg);
+  }
+}
+
+.type-defense .animatedIcon {
+  animation: defensePulse 2s ease-in-out infinite;
+}
+
+@keyframes defensePulse {
+  0%,
+  100% {
+    transform: scale(1);
+    filter: brightness(1);
+  }
+  50% {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+  }
+}
+
+.type-health .animatedValue {
+  animation: healthBeat 1.5s ease-in-out infinite;
+}
+
+@keyframes healthBeat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* Hover effects */
+.animatedStat:hover {
+  transform: translateY(-2px);
+  transition: transform 0.2s ease;
+}
+
+.animatedStat:hover .animatedIcon {
+  animation-duration: 0.5s;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .animatedStat {
+    animation: none;
+  }
+
+  .glowBackground {
+    inset: -2px;
+  }
+}

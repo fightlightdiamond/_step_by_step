@@ -1,0 +1,102 @@
+import { Meta, Canvas, Controls } from "@storybook/addon-docs/blocks";
+import BattleField from "./BattleField";
+import * as BattleFieldStories from "./BattleField.stories";
+
+<Meta of={BattleFieldStories} />
+
+# BattleField Component
+
+Battle field component tối ưu với Tailwind CSS + CSS Module. 8 ô battle với hero positioning, selection effects, và rarity-based glows.
+
+## Interactive Playground
+
+<Canvas of={BattleFieldStories.HeroWithSelection} />
+
+<Controls of={BattleFieldStories.HeroWithSelection} />
+
+## Examples
+
+### Empty Field
+
+<Canvas of={BattleFieldStories.EmptyField} />
+
+<Controls of={BattleFieldStories.EmptyField} />
+
+### Hero at Position 3
+
+<Canvas of={BattleFieldStories.HeroAtPosition3} />
+
+<Controls of={BattleFieldStories.HeroAtPosition3} />
+
+### Selected Cell
+
+<Canvas of={BattleFieldStories.SelectedCell} />
+
+<Controls of={BattleFieldStories.SelectedCell} />
+
+### Legendary Hero
+
+<Canvas of={BattleFieldStories.LegendaryHero} />
+
+<Controls of={BattleFieldStories.LegendaryHero} />
+
+### Style Variations
+
+#### No Border
+
+<Canvas of={BattleFieldStories.NoBorder} />
+
+<Controls of={BattleFieldStories.NoBorder} />
+
+#### No Card Border
+
+<Canvas of={BattleFieldStories.NoCardBorder} />
+
+<Controls of={BattleFieldStories.NoCardBorder} />
+
+#### No Card Background
+
+<Canvas of={BattleFieldStories.NoCardBackground} />
+
+<Controls of={BattleFieldStories.NoCardBackground} />
+
+#### No Cell Numbers
+
+<Canvas of={BattleFieldStories.NoCellNumbers} />
+
+<Controls of={BattleFieldStories.NoCellNumbers} />
+
+#### No Empty Placeholder
+
+<Canvas of={BattleFieldStories.NoEmptyPlaceholder} />
+
+<Controls of={BattleFieldStories.NoEmptyPlaceholder} />
+
+#### Minimal Style
+
+<Canvas of={BattleFieldStories.MinimalStyle} />
+
+<Controls of={BattleFieldStories.MinimalStyle} />
+
+## Props
+
+<Controls of={BattleFieldStories.HeroWithSelection} />
+
+## Features
+
+- **8 ô battle** cách đều, bo tròn, border nhẹ
+- **Hero positioning** - nhận prop `heroPosition` (0-7)
+- **Selection highlight** - prop `selectedCell` với glow effect
+- **Tailwind CSS** cho layout, grid, spacing, colors
+- **shadcn/ui Card** cho từng ô
+- **CSS Module** cho glow, pulse, hover animations
+- **Rarity effects** - common, rare, epic, legendary glows
+- **Interactive** - onCellClick handler
+
+## Customization Options
+
+1. `showBorder` - Border của ô
+2. `showCellNumber` - Số thứ tự ô (0-7)
+3. `showCardBorder` - Viền card shadcn/ui
+4. `showCardBackground` - Background card
+5. `showEmptyPlaceholder` - Dấu thập (+) ở ô trống

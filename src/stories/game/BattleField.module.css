@@ -1,0 +1,572 @@
+/* CSS Module chỉ cho battle field effects và animations */
+
+/* Battle field container */
+.battleFieldContainer {
+  animation: fieldAppear 0.8s ease-out;
+}
+
+@keyframes fieldAppear {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+/* Battle cell base */
+.battleCell {
+  position: relative;
+  overflow: hidden;
+}
+
+.battleCell:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Hero cell effects */
+.heroCell {
+  animation: heroPresence 2s ease-in-out infinite alternate;
+}
+
+@keyframes heroPresence {
+  0% {
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+  }
+}
+
+/* Selected cell effects */
+.selectedCell {
+  animation: selectedPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes selectedPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 15px rgba(251, 191, 36, 0.6);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(251, 191, 36, 0.8);
+    transform: scale(1.02);
+  }
+}
+
+/* Hero content animation */
+.heroContent {
+  animation: heroFloat 3s ease-in-out infinite;
+}
+
+@keyframes heroFloat {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-2px);
+  }
+}
+
+/* Hero avatar effects */
+.heroAvatar {
+  position: relative;
+  animation: avatarGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes avatarGlow {
+  0% {
+    filter: brightness(1);
+  }
+  100% {
+    filter: brightness(1.1);
+  }
+}
+
+/* Empty cell animation */
+.emptyCell {
+  animation: emptyPulse 3s ease-in-out infinite;
+}
+
+@keyframes emptyPulse {
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.05);
+  }
+}
+
+/* Selection glow overlay */
+.selectionGlow {
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: radial-gradient(
+    ellipse,
+    rgba(251, 191, 36, 0.4) 0%,
+    transparent 70%
+  );
+  animation: selectionGlowPulse 1s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes selectionGlowPulse {
+  0% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Hero glow overlay */
+.heroGlow {
+  position: absolute;
+  inset: -3px;
+  border-radius: inherit;
+  opacity: 0.5;
+  animation: heroGlowPulse 2s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes heroGlowPulse {
+  0% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}
+
+/* Rarity specific glows */
+.glow-common {
+  background: radial-gradient(ellipse, rgba(107, 114, 128, 0.3), transparent);
+}
+
+.glow-rare {
+  background: radial-gradient(ellipse, rgba(59, 130, 246, 0.4), transparent);
+}
+
+.glow-epic {
+  background: radial-gradient(ellipse, rgba(139, 92, 246, 0.5), transparent);
+}
+
+.glow-legendary {
+  background: radial-gradient(ellipse, rgba(251, 191, 36, 0.6), transparent);
+  animation: legendaryGlow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes legendaryGlow {
+  0% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+/* Hover enhancements */
+.battleCell:hover .heroContent {
+  animation-duration: 1s;
+}
+
+.battleCell:hover .emptyCell {
+  animation-duration: 1s;
+  opacity: 1;
+}
+
+.battleCell:hover .heroGlow {
+  animation-duration: 1s;
+}
+
+/* Cell entrance animation */
+.battleCell {
+  animation: cellEntrance 0.6s ease-out both;
+}
+
+.battleCell:nth-child(1) {
+  animation-delay: 0s;
+}
+.battleCell:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.battleCell:nth-child(3) {
+  animation-delay: 0.2s;
+}
+.battleCell:nth-child(4) {
+  animation-delay: 0.3s;
+}
+.battleCell:nth-child(5) {
+  animation-delay: 0.4s;
+}
+.battleCell:nth-child(6) {
+  animation-delay: 0.5s;
+}
+.battleCell:nth-child(7) {
+  animation-delay: 0.6s;
+}
+.battleCell:nth-child(8) {
+  animation-delay: 0.7s;
+}
+
+@keyframes cellEntrance {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px) scale(1);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .battleCell {
+    animation: none;
+  }
+
+  .heroCell,
+  .selectedCell {
+    animation-duration: 1s;
+  }
+
+  .heroGlow,
+  .selectionGlow {
+    animation: none;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .battleFieldContainer,
+  .battleCell,
+  .heroCell,
+  .selectedCell,
+  .heroContent,
+  .heroAvatar,
+  .emptyCell,
+  .selectionGlow,
+  .heroGlow {
+    animation: none;
+  }
+}
+
+/* No border variant */
+.noBorder {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.noBorder:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.noBorder.heroCell {
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
+}
+
+.noBorder.selectedCell {
+  box-shadow: 0 0 15px rgba(251, 191, 36, 0.6);
+}
+/* No card border variant */
+.noCardBorder {
+  border: none !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.noCardBorder:hover {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.noCardBorder.heroCell {
+  box-shadow: 0 0 8px rgba(59, 130, 246, 0.4);
+}
+
+.noCardBorder.selectedCell {
+  box-shadow: 0 0 12px rgba(251, 191, 36, 0.7);
+}
+
+/* No card background variant */
+.noCardBackground {
+  background: transparent !important;
+}
+
+.noCardBackground:hover {
+  background: rgba(0, 0, 0, 0.05) !important;
+}
+
+.noCardBackground.heroCell {
+  background: rgba(59, 130, 246, 0.1) !important;
+}
+
+.noCardBackground.selectedCell {
+  background: rgba(251, 191, 36, 0.1) !important;
+}
+
+/* Combined no border + no background */
+.noCardBorder.noCardBackground {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none;
+}
+
+.noCardBorder.noCardBackground:hover {
+  background: rgba(0, 0, 0, 0.05) !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.noCardBorder.noCardBackground.heroCell {
+  background: rgba(59, 130, 246, 0.1) !important;
+  box-shadow: 0 0 8px rgba(59, 130, 246, 0.3);
+}
+
+.noCardBorder.noCardBackground.selectedCell {
+  background: rgba(251, 191, 36, 0.1) !important;
+  box-shadow: 0 0 12px rgba(251, 191, 36, 0.6);
+}
+/* Background theme effects */
+.theme-grass {
+  background-image: url("https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&h=600&fit=crop&crop=center&auto=format&q=80");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.theme-snow {
+  background-image: url("https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=800&h=600&fit=crop&crop=center&auto=format&q=80");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@keyframes snowfall {
+  0% {
+    background-position: 0% 0%, 100% 100%;
+  }
+  100% {
+    background-position: 100% 100%, 0% 0%;
+  }
+}
+
+.theme-desert {
+  background-image: url("https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=800&h=600&fit=crop&crop=center&auto=format&q=80");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@keyframes heatWave {
+  0% {
+    filter: brightness(1);
+  }
+  100% {
+    filter: brightness(1.05);
+  }
+}
+
+.theme-water {
+  background-image: url("https://images.unsplash.com/photo-1439066615861-d1af74d74000?w=800&h=600&fit=crop&crop=center&auto=format&q=80");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@keyframes waterRipple {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+.theme-lava {
+  background-image: url("https://images.unsplash.com/photo-1603048297172-c92544798d5a?w=800&h=600&fit=crop&crop=center&auto=format&q=80");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@keyframes lavaGlow {
+  0% {
+    box-shadow: inset 0 0 20px rgba(239, 68, 68, 0.1);
+    filter: brightness(1);
+  }
+  100% {
+    box-shadow: inset 0 0 30px rgba(239, 68, 68, 0.2);
+    filter: brightness(1.1);
+  }
+}
+
+.theme-forest {
+  background-image: url("https://images.unsplash.com/photo-1448375240586-882707db888b?w=800&h=600&fit=crop&crop=center&auto=format&q=80");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.theme-mountain {
+  background-image: url("https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop&crop=center&auto=format&q=80");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.theme-swamp {
+  background-image: url("https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=800&h=600&fit=crop&crop=center&auto=format&q=80");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@keyframes swampBubble {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+
+.theme-crystal {
+  background-image: url("https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=800&h=600&fit=crop&crop=center&auto=format&q=80");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@keyframes crystalShimmer {
+  0% {
+    filter: hue-rotate(0deg) brightness(1);
+  }
+  100% {
+    filter: hue-rotate(30deg) brightness(1.1);
+  }
+}
+
+.theme-void {
+  background-image: url("https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=800&h=600&fit=crop&crop=center&auto=format&q=80");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@keyframes voidPulse {
+  0%,
+  100% {
+    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.3);
+  }
+  50% {
+    box-shadow: inset 0 0 80px rgba(0, 0, 0, 0.5);
+  }
+}
+
+.theme-heaven {
+  background-image: url("https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop&crop=top&auto=format&q=80");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@keyframes heavenGlow {
+  0% {
+    filter: brightness(1);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+  }
+  100% {
+    filter: brightness(1.1);
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.2);
+  }
+}
+
+/* Theme-specific hover effects */
+.theme-grass:hover {
+  animation: grassSway 2s ease-in-out infinite;
+}
+.theme-water:hover {
+  animation: waterRipple 3s ease-in-out infinite;
+}
+.theme-lava:hover {
+  animation: lavaGlow 2s ease-in-out infinite;
+}
+.theme-crystal:hover {
+  animation: crystalShimmer 4s ease-in-out infinite;
+}
+
+@keyframes grassSway {
+  0%,
+  100% {
+    transform: translateX(0px);
+  }
+  50% {
+    transform: translateX(1px);
+  }
+}
+/* Overlay để cards nhìn rõ trên background images */
+.theme-grass::before,
+.theme-snow::before,
+.theme-desert::before,
+.theme-water::before,
+.theme-lava::before,
+.theme-forest::before,
+.theme-mountain::before,
+.theme-swamp::before,
+.theme-crystal::before,
+.theme-void::before,
+.theme-heaven::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.theme-void::before {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Theme-specific overlays cho better contrast */
+.theme-grass::before {
+  background: rgba(255, 255, 255, 0.15);
+}
+.theme-snow::before {
+  background: rgba(255, 255, 255, 0.05);
+}
+.theme-desert::before {
+  background: rgba(255, 255, 255, 0.1);
+}
+.theme-water::before {
+  background: rgba(255, 255, 255, 0.1);
+}
+.theme-lava::before {
+  background: rgba(0, 0, 0, 0.1);
+}
+.theme-forest::before {
+  background: rgba(255, 255, 255, 0.15);
+}
+.theme-mountain::before {
+  background: rgba(255, 255, 255, 0.1);
+}
+.theme-swamp::before {
+  background: rgba(255, 255, 255, 0.15);
+}
+.theme-crystal::before {
+  background: rgba(255, 255, 255, 0.1);
+}
+.theme-heaven::before {
+  background: rgba(255, 255, 255, 0.05);
+}

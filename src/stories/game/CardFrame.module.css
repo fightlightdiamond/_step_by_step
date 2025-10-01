@@ -1,0 +1,114 @@
+/* CSS Module chỉ cho hiệu ứng, animation đặc biệt */
+
+/* Glowing frame effect */
+.glowingFrame {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  animation: frameGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes frameGlow {
+  0% {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  }
+  100% {
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* Animated frame với subtle movement */
+.animatedFrame {
+  animation: subtleFloat 4s ease-in-out infinite;
+}
+
+@keyframes subtleFloat {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-2px);
+  }
+}
+
+/* Rarity specific effects */
+.rarity-common.glowingFrame {
+  box-shadow: 0 0 15px rgba(107, 114, 128, 0.3);
+}
+
+.rarity-rare.glowingFrame {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+}
+
+.rarity-epic.glowingFrame {
+  box-shadow: 0 0 25px rgba(139, 92, 246, 0.5);
+}
+
+.rarity-legendary.glowingFrame {
+  box-shadow: 0 0 30px rgba(251, 191, 36, 0.6), 0 0 60px rgba(251, 191, 36, 0.3);
+  animation: legendaryGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes legendaryGlow {
+  0% {
+    box-shadow: 0 0 30px rgba(251, 191, 36, 0.6),
+      0 0 60px rgba(251, 191, 36, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 40px rgba(251, 191, 36, 0.8),
+      0 0 80px rgba(251, 191, 36, 0.4);
+  }
+}
+
+/* Inner glow overlay */
+.innerGlow {
+  position: absolute;
+  inset: 2px;
+  border-radius: inherit;
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 0.1) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+/* Legendary sparkle effect */
+.sparkleEffect {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background-image: radial-gradient(2px 2px at 20px 30px, #fff, transparent),
+    radial-gradient(2px 2px at 40px 70px, #fff, transparent),
+    radial-gradient(1px 1px at 90px 40px, #fff, transparent),
+    radial-gradient(1px 1px at 130px 80px, #fff, transparent),
+    radial-gradient(2px 2px at 160px 30px, #fff, transparent);
+  background-repeat: repeat;
+  background-size: 200px 100px;
+  animation: sparkle 3s linear infinite;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+@keyframes sparkle {
+  0% {
+    transform: translateY(0px);
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateY(-100px);
+    opacity: 0.6;
+  }
+}
+
+/* Hover enhancements */
+.glowingFrame:hover {
+  transform: translateY(-1px);
+  transition: transform 0.2s ease;
+}
+
+.rarity-legendary:hover .sparkleEffect {
+  animation-duration: 1.5s;
+}

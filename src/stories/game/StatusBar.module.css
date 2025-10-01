@@ -1,0 +1,100 @@
+/* CSS Module chỉ cho animations và effects đặc biệt */
+
+/* Animated fill với gradient overlay */
+.animatedFill {
+  background-image: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.2) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.2) 75%,
+    transparent 75%
+  );
+  background-size: 20px 20px;
+  animation: progressStripes 1s linear infinite;
+}
+
+@keyframes progressStripes {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 20px 0;
+  }
+}
+
+/* Type-specific enhancements */
+.type-health {
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.type-mana {
+  background-image: linear-gradient(to right, #3b82f6, #1d4ed8);
+}
+
+.type-experience {
+  background-image: linear-gradient(to right, #eab308, #ca8a04);
+}
+
+.type-energy {
+  background-image: linear-gradient(to right, #22c55e, #16a34a);
+}
+
+/* Shine effect animation */
+.shineEffect {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    transparent 100%
+  );
+  animation: shine 2s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes shine {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Critical health warning */
+.criticalWarning {
+  background: rgba(239, 68, 68, 0.3);
+  animation: criticalPulse 1s ease-in-out infinite alternate;
+}
+
+@keyframes criticalPulse {
+  0% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0.7;
+  }
+}
+
+/* Hover effects */
+.animatedFill:hover {
+  filter: brightness(1.1);
+  transition: filter 0.2s ease;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .animatedFill {
+    background-size: 15px 15px;
+  }
+
+  @keyframes progressStripes {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: 15px 0;
+    }
+  }
+}
