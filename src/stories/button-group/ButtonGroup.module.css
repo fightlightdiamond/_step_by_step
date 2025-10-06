@@ -1,0 +1,296 @@
+/* Base Button Group Styles */
+.buttonGroup {
+  display: inline-flex;
+  align-items: center;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+/* Size variations (Không thay đổi) */
+.sizeXS {
+  height: 24px;
+}
+.sizeSM {
+  height: 32px;
+}
+.sizeMD {
+  height: 36px;
+}
+.xs {
+  width: 16px;
+  height: 16px;
+}
+.sm {
+  width: 20px;
+  height: 20px;
+}
+.md {
+  width: 24px;
+  height: 24px;
+}
+
+/* Individual Button Base Styles */
+.buttonBase {
+  position: relative; /* Giữ lại để z-index hoạt động */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-6);
+
+  /* === THAY ĐỔI 1: Áp dụng border đầy đủ cho mỗi button === */
+  /* Bỏ border-top và border-bottom riêng lẻ */
+  /* border-top: 1px solid var(--gray-300); */
+  /* border-bottom: 1px solid var(--gray-300); */
+  /* Thay bằng một border hoàn chỉnh */
+  border: 1px solid var(--gray-300);
+
+  background: var(--light-2);
+  color: var(--neutral-500);
+  font-family: "Pretendard", sans-serif;
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-regular);
+  line-height: normal;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  outline: none;
+  padding: var(--spacing-5) var(--spacing-10);
+  box-sizing: border-box;
+}
+
+/* === THÊM VÀO 2: Kỹ thuật margin âm === */
+/* Áp dụng margin-left âm cho tất cả các button TRỪ button đầu tiên */
+.buttonGroup .buttonBase:not(:first-child) {
+  margin-left: -1px;
+}
+
+/* === THÊM VÀO 3: Xử lý trạng thái active/hover/focus === */
+/* Khi button được tương tác, tăng z-index để nó nổi lên trên */
+.buttonBase:hover,
+.buttonBase:focus-visible,
+.buttonBase.stateSelected {
+  z-index: 1; /* Chỉ cần lớn hơn 0 là đủ */
+}
+
+.buttonBase:focus-visible {
+  /* z-index đã được thêm ở trên */
+  outline: 2px solid var(--color-ring);
+  outline-offset: 1px;
+}
+
+/* Size variations for buttons (Không thay đổi) */
+.buttonXS {
+  height: 24px;
+  padding: 1px var(--spacing-sm);
+  gap: var(--spacing-xs);
+  font-size: var(--font-size-sm);
+}
+.buttonSM {
+  height: 32px;
+  padding: var(--spacing-5) var(--spacing-10);
+  gap: var(--spacing-6);
+  font-size: var(--font-size-base);
+}
+.buttonMD {
+  height: 36px;
+  padding: var(--spacing-6) var(--spacing-12);
+  gap: var(--spacing-6);
+  font-size: var(--font-size-md);
+}
+
+/* Position variations (Không thay đổi) */
+.positionFirst {
+  border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+}
+.positionMiddle {
+  border-radius: 0;
+}
+.positionLast {
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+.positionSingle {
+  border-radius: var(--radius-sm);
+}
+
+/* === BỎ ĐI 4: Không cần pseudo-element ::after để tạo border nữa === */
+/* .buttonBase::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 1px;
+    height: 100%;
+    background: var(--gray-300);
+    pointer-events: none;
+}
+
+.positionLast::after,
+.positionSingle::after {
+    display: none;
+} */
+/* Toàn bộ khối ::after và các quy tắc liên quan đã được xóa */
+
+/* Appearance variations - Default (Không thay đổi) */
+.appearanceDefault {
+  background: var(--light-2);
+  color: var(--neutral-500);
+}
+.appearanceDefault:hover:not(.stateDisabled):not(.stateSelected) {
+  background: var(--gray-200);
+  color: var(--neutral-500);
+}
+.appearanceDefault.stateSelected {
+  background: var(--gray-500);
+  color: var(--white);
+}
+.appearanceDefault.stateDisabled {
+  background: var(--light-2);
+  color: var(--neutral-500);
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ... (Các appearance khác không thay đổi) ... */
+.appearancePrimary {
+  background: var(--light-2);
+  color: var(--neutral-500);
+}
+.appearancePrimary:hover:not(.stateDisabled):not(.stateSelected) {
+  background: var(--blue-400);
+  color: var(--white);
+}
+.appearancePrimary.stateSelected {
+  background: var(--blue-500);
+  color: var(--white);
+}
+.appearancePrimary.stateDisabled {
+  background: var(--blue-400);
+  color: var(--white);
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+.appearanceSecondary {
+  background: var(--light-2);
+  color: var(--neutral-500);
+}
+.appearanceSecondary:hover:not(.stateDisabled):not(.stateSelected) {
+  background: var(--cyan-400);
+  color: var(--white);
+}
+.appearanceSecondary.stateSelected {
+  background: var(--cyan-500);
+  color: var(--white);
+}
+.appearanceSecondary.stateDisabled {
+  background: var(--cyan-400);
+  color: var(--white);
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+.appearanceTransparency {
+  background: var(--light-2);
+  color: var(--neutral-500);
+}
+.appearanceTransparency:hover:not(.stateDisabled):not(.stateSelected) {
+  background: var(--light-2);
+  color: var(--neutral-500);
+}
+.appearanceTransparency.stateSelected {
+  background: var(--gray-200);
+  color: var(--neutral-500);
+}
+.appearanceTransparency.stateDisabled {
+  background: transparent;
+  color: var(--neutral-500);
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* === THAY ĐỔI 5: Cập nhật `appearanceOutline` để đổi màu cả 4 cạnh border === */
+.appearanceOutline {
+  background: var(--light-2);
+  color: var(--neutral-500);
+  /* border color mặc định đã được set trong .buttonBase */
+}
+
+.appearanceOutline:hover:not(.stateDisabled):not(.stateSelected) {
+  background: var(--gray-200);
+  color: var(--neutral-900);
+  /* Có thể thêm đổi màu border khi hover ở đây nếu muốn */
+  /* border-color: var(--neutral-500); */
+}
+
+.appearanceOutline.stateSelected {
+  background: var(--neutral-100);
+  /* Bỏ border-top và border-bottom riêng lẻ */
+  /* border-top: 1px solid var(--blue-500); */
+  /* border-bottom: 1px solid var(--blue-500); */
+  /* Thay bằng đổi màu cho cả border */
+  border-color: var(--blue-500);
+  color: var(--blue-500);
+}
+
+.appearanceOutline.stateDisabled {
+  background: var(--light-2);
+  color: var(--neutral-900);
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Icon wrapper and Label (Không thay đổi) */
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.label {
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* === BỎ ĐI 6: Các quy tắc phức tạp cho outline group không còn cần thiết === */
+/* Các đoạn mã CSS phức tạp bên dưới có thể được đơn giản hóa hoặc loại bỏ
+   vì logic border mới đã xử lý hầu hết các trường hợp. */
+
+/*
+.buttonGroup .appearanceOutline::after {
+    background: var(--neutral-500);
+}
+
+.buttonGroup .appearanceOutline.stateSelected::after {
+    background: var(--blue-600);
+}
+
+.buttonGroup.outlineGroup {
+    background: transparent;
+}
+
+.buttonGroup.outlineGroup .appearanceOutline {
+    position: relative;
+}
+
+.buttonGroup.outlineGroup::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.buttonGroup.outlineGroup.hasSelectedOutline::before {
+}
+
+.appearanceOutline.positionSingle {
+}
+
+.appearanceOutline.positionSingle.stateSelected {
+}
+
+.appearanceOutline.positionSingle::after {
+    display: none;
+}
+*/

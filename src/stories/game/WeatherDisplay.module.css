@@ -1,0 +1,123 @@
+/* Weather Display Animations and Effects */
+
+.weatherContainer {
+  animation: fadeInUp 0.5s ease-out;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.weatherBadge {
+  animation: slideInLeft 0.3s ease-out forwards;
+  opacity: 0;
+  transform: translateX(-20px);
+}
+
+@keyframes slideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.elementModifier {
+  animation: bounceIn 0.4s ease-out;
+  transition: transform 0.2s ease;
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.elementModifier:hover {
+  transform: scale(1.05);
+}
+
+/* Weather change animation */
+.weatherChangeAnimation {
+  animation: weatherPulse 0.6s ease-in-out;
+}
+
+@keyframes weatherPulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7);
+  }
+  50% {
+    transform: scale(1.02);
+    box-shadow: 0 0 0 10px rgba(59, 130, 246, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0);
+  }
+}
+
+/* Seasonal background effects */
+.seasonSpring {
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+}
+
+.seasonSummer {
+  background: linear-gradient(135deg, #fefce8 0%, #fef3c7 100%);
+}
+
+.seasonAutumn {
+  background: linear-gradient(135deg, #fef7ed 0%, #fed7aa 100%);
+}
+
+.seasonWinter {
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+}
+
+/* Weather intensity indicators */
+.weatherIntensityLow {
+  opacity: 0.7;
+  filter: grayscale(0.2);
+}
+
+.weatherIntensityMedium {
+  opacity: 0.9;
+}
+
+.weatherIntensityHigh {
+  opacity: 1;
+  filter: brightness(1.1) saturate(1.2);
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .weatherBadge {
+    animation-duration: 0.2s;
+  }
+
+  .elementModifier {
+    animation-duration: 0.3s;
+  }
+}

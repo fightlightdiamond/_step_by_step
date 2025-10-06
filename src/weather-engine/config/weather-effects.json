@@ -1,0 +1,89 @@
+{
+  "weatherEffects": {
+    "Sunny": {
+      "Fire": 20,
+      "Ice": -10,
+      "Lightning": -10
+    },
+    "Cloudy": {
+      "Fire": -5,
+      "Ice": 5,
+      "Lightning": 0
+    },
+    "Rainy": {
+      "Fire": -20,
+      "Ice": 10,
+      "Lightning": 15
+    },
+    "Windy": {
+      "Fire": 5,
+      "Ice": -5,
+      "Lightning": 10
+    },
+    "Stormy": {
+      "Fire": -15,
+      "Ice": 5,
+      "Lightning": 25
+    },
+    "Foggy": {
+      "Fire": -10,
+      "Ice": 15,
+      "Lightning": -15
+    },
+    "Snowy": {
+      "Fire": -25,
+      "Ice": 20,
+      "Lightning": -10
+    },
+    "Hot": {
+      "Fire": 25,
+      "Ice": -20,
+      "Lightning": -5
+    },
+    "Cold": {
+      "Fire": -15,
+      "Ice": 25,
+      "Lightning": -10
+    },
+    "Warm": {
+      "Fire": 10,
+      "Ice": -5,
+      "Lightning": 0
+    },
+    "Cool": {
+      "Fire": -5,
+      "Ice": 10,
+      "Lightning": 0
+    },
+    "Humid": {
+      "Fire": -10,
+      "Ice": 5,
+      "Lightning": 20
+    }
+  },
+  "compatibilityMatrix": {
+    "Sunny": ["Warm", "Hot", "Windy", "Cloudy"],
+    "Cloudy": ["Sunny", "Rainy", "Windy", "Cool", "Warm", "Foggy"],
+    "Rainy": ["Cloudy", "Stormy", "Cool", "Humid", "Foggy"],
+    "Windy": ["Sunny", "Cloudy", "Stormy", "Cool", "Warm"],
+    "Stormy": ["Rainy", "Windy", "Cool", "Humid"],
+    "Foggy": ["Cloudy", "Rainy", "Cool", "Humid"],
+    "Snowy": ["Cold", "Windy", "Foggy"],
+    "Hot": ["Sunny", "Warm"],
+    "Cold": ["Snowy", "Cool", "Foggy"],
+    "Warm": ["Sunny", "Cloudy", "Windy", "Hot"],
+    "Cool": ["Cloudy", "Rainy", "Windy", "Stormy", "Foggy", "Cold"],
+    "Humid": ["Rainy", "Stormy", "Foggy"]
+  },
+  "oppositeWeatherPairs": [
+    ["Hot", "Cold"],
+    ["Sunny", "Snowy"],
+    ["Sunny", "Stormy"],
+    ["Hot", "Snowy"],
+    ["Cold", "Humid"]
+  ],
+  "effectLimits": {
+    "min": -40,
+    "max": 40
+  }
+}

@@ -1,0 +1,42 @@
+/* Interactive Card Animations */
+.interactiveCard {
+  transition: all 0.2s ease-in-out;
+}
+
+.interactiveCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.interactiveCard:active {
+  transform: translateY(-2px);
+}
+
+/* Card entrance animation */
+.interactiveCard {
+  animation: cardSlideIn 0.3s ease-out;
+}
+
+@keyframes cardSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Disabled card styling */
+.interactiveCard:disabled,
+.interactiveCard.disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.interactiveCard:disabled:hover,
+.interactiveCard.disabled:hover {
+  transform: none;
+  box-shadow: none;
+}

@@ -1,0 +1,43 @@
+{
+  "timestamp": "2025-10-04T00:00:12.967Z",
+  "summary": {
+    "totalSuites": 2,
+    "totalTests": 0,
+    "passed": 0,
+    "failed": 0,
+    "skipped": 0,
+    "successRate": null,
+    "duration": 1199
+  },
+  "suites": [
+    {
+      "total": 0,
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "suites": 0,
+      "name": "integration-tests-simple.test",
+      "pattern": "src/weather-engine/__tests__/integration-tests-simple.test.ts",
+      "description": "integration test",
+      "duration": 635,
+      "status": "passed"
+    },
+    {
+      "total": 0,
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "suites": 0,
+      "name": "weather-manager-integration.test",
+      "pattern": "src/weather-engine/__tests__/weather-manager-integration.test.ts",
+      "description": "integration test",
+      "status": "failed",
+      "error": "Command failed: npm test src/weather-engine/__tests__/weather-manager-integration.test.ts\nFAIL src/weather-engine/__tests__/weather-manager-integration.test.ts\n  ● Test suite failed to run\n\n    Vitest cannot be imported in a CommonJS module using require(). Please use \"import\" instead.\n\n    If you are using \"import\" in your source code, then it's possible it was bundled into require() automatically by your bundler. In that case, do not bundle CommonJS output since it will never work with Vitest, or use dynamic import() which is available in all CommonJS modules.\n\n      3 |  */\n      4 |\n    > 5 | import { describe, it, expect, beforeEach, vi } from \"vitest\";\n        | ^\n      6 | import {\n      7 |   WeatherManager,\n      8 |   WeatherManagerError,\n\n      at Object.<anonymous> (node_modules/vitest/index.cjs:1:7)\n      at Object.<anonymous> (src/weather-engine/__tests__/weather-manager-integration.test.ts:5:1)\n\nTest Suites: 1 failed, 1 total\nTests:       0 total\nSnapshots:   0 total\nTime:        0.236 s\nRan all test suites matching src/weather-engine/__tests__/weather-manager-integration.test.ts.\n"
+    }
+  ],
+  "environment": {
+    "node": "v22.18.0",
+    "platform": "darwin",
+    "arch": "arm64"
+  }
+}
